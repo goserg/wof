@@ -1,0 +1,28 @@
+<html lang="ru">
+<head>
+<title>Поле чудес</title>
+<link rel="stylesheet" href="style.css">
+<script src="https://cdn.jsdelivr.net/npm/vue"></script>
+<link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+<div id="app">
+ <div class="question"> {{ randomWord.q }} </div>
+
+ <div class="mainboard">
+  <div class="letter flip" v-for="letter in letters">
+    {{ letter.toUpperCase() }}
+  </div>
+ </div>
+
+ <div class="keyboard">
+  <div :class='isInGuessed(key) ? "key inactive" : "key active"' v-for="key in keyboard" @click="click(key)">
+    {{ key.toUpperCase() }}
+  </div>
+ </div>
+
+ <div class="reset" @click="reset">Новое слово</div>
+</div>
+<script src="main.js"></script>
+</body>
+</html>
